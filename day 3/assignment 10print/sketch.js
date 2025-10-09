@@ -1,8 +1,8 @@
 
-
+let height= 300
 let size=20
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1000, 1000);
   background(220);
   frameRate(10);
   strokeWeight(7);
