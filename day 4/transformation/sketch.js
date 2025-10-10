@@ -7,14 +7,18 @@ function setup() {
 
 function draw() {
   background(220);
- drawFlower(12,100,200);
+drawFlower(12,100,200);
 
 }
 function drawFlower(petals,x,y){
    push();
   //move the origin
+ 
   translate(x,y);
-  for(let i=0; i<petals; i=i+1){
+   rotate(frameCount);
+  
+  for(let i=0; i<petals; i=i+1)
+    {
     ellipse(80,0,100,50);
     rotate(360/petals);
   }

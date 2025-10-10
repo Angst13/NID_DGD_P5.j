@@ -10,7 +10,7 @@ function preload() {
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  frameRate(5);
+  frameRate(24);
 
 }
 
@@ -33,3 +33,4 @@ function draw() {
     }
   }
 }
+``
