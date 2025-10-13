@@ -99,12 +99,18 @@ function draw() {
   
 }
 function mouseClicked() {
-  if ((mouseX > 10 && mouseX < 250 && mouseY > 10 && mouseY <500) && (posX2 == 0 || posY2 == 0)) {
+  if ((mouseX > 10 && mouseX < 250 && mouseY > 10 && mouseY < 500) && (posX2 == 0 || posY2 == 0)) {
     posX2 += 1;
     posY2 += 10;
+  } else if ((mouseX > 250 && mouseX < 400 && mouseY > 10 && mouseY < 500) && (posX3 == 0 || posY3 == 0)) {
+    posX3 += 1;
+    posY3 += 10;
   } else {
-      posX2 = 0;
-      posY2 = 0;
+    posX2 = 0;
+    posY2 = 0;
+
+    posX3 = 0;
+    posY3 = 0;
   }
 }
 
