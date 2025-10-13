@@ -1,6 +1,5 @@
 let spriteImage, sprites =[];
-let spritesheet[];
-let spriteX = 12, spriteY = 4;
+let spriteX = 8, spriteY = 5;
 let count = 0;
 let row = 0;
 let x = 0, y = 0;
@@ -8,10 +7,7 @@ let xdir = 0, ydir = 0;
 
 function preload() {
   //load the full sprite image
-  spriteSheets["down"] = loadImage("images/r1.png");
-  spriteSheets["left"] = loadImage("images/r3.png");
-  spriteSheets["right"] = loadImage("images/r2.png");
-  spriteSheets["up"] = loadImage("images/r0.png");
+  spriteImage = loadImage('./images/l1.png');
 }
 
 function setup() {
@@ -50,21 +46,25 @@ function draw() {
 function keyPressed() {
   //read the appropriate row based on the key direction
   if(keyCode == UP_ARROW) {
-    row = 3; // select the right row
+    row = 0; // select the right row
     xdir = 0; //make sure the sprite doesnt move along x axis
     ydir = -7; //make sprite move up
   } else if(keyCode == DOWN_ARROW) {
-    row = 0;
+    row = 3;
     xdir = 0; //make sure the sprite doesnt move along x axis
     ydir = 7; //make sprite move down
   } else if(keyCode == LEFT_ARROW) {
-    row = 1;
+    row = 2;
     ydir = 0; //make sure the sprite doesnt move along y axis
     xdir = -7; //make sprite move left
   } else if(keyCode == RIGHT_ARROW) {
-    row = 2;
+    row = 1;
     ydir = 0; //make sure the sprite doesnt move along y axis
     xdir = 7; //make sprite move left
-  } else (image)
+} else { 
+  row = 4;
+  ydir = 0;
+  xdir = 0;
+}
 
 }
