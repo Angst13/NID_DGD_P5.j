@@ -16,11 +16,10 @@ function draw() {
     for (let x = size / 2; x < width; x += size) {
 
       // color based on position and frame count
-      let r = map(x + t * 10, 0, width, 80, 255);
-      let g = map(y - t * 10, 0, height, 100, 255);
-      let b = map(x * y, 0, width * height, 150, 255);
+      let r = lerp(80, 255, x / width);
+      let g = lerp(100, 255, y / height);
+      let b = lerp(150, 255, (x + y) / (width + height));
       stroke(r, g, b);
-
       // choose a complex pattern
       let choice = int(random(6));
 
