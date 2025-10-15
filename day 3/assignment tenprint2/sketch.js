@@ -1,5 +1,4 @@
 let size = 40;
-let t = 0;
 
 function setup() {
   createCanvas(900, 900);
@@ -67,6 +66,5 @@ function draw() {
     }
   }
 
-  // slowly evolve color over time
-  t += 0.05;
+
 }

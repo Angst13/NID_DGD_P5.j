@@ -182,10 +182,10 @@ function draw() {
 
   image(pic2, 0, posY2, 2000, 1414);
   image(pic3, 0, posY3, 2000, 1414);
-  image(pic4, posX4, posY4, 2000, 1414);
+  //image(pic4, posX4, posY4, 2000, 1414);
 
 
-  image(pic5, 0, 0, 2000, 1414);
+  image(pic5, posX5, posY5, 2000, 1414);
   image(pic6, 0, 0, 2000, 1414);
   image(pic7, 0, 0, 2000, 1414);
   image(pic8, 0, 0, 2000, 1414);
@@ -202,36 +202,55 @@ function draw() {
   image(pic19, 0, 0, 2000, 1414);
   image(pic20, 0, 0, 2000, 1414);
   image(pic21, 0, 0, 2000, 1414);
-
+image(pic4, posX4, posY4, 2000, 1414);
   
   fill(0);
   noStroke();
   textSize(20);
-  text("mouseX: " + mouseX + "  mouseY: " + mouseY, 20, 30);
+  text("mouseX: " + mouseX + "  mouseY: " + mouseY, 20, 20);
 }
 
 function mouseClicked() {
-  
-  if ((mouseX > 10 && mouseX < 250 && mouseY > 10 && mouseY < 500)(posX2 == 0 || posY2 == 0)) {
-    
-   posX2 += 1;
-   posY2 += 10;
+ //pic2
+  if (mouseX > 60 && mouseX < 215 && mouseY > 10 && mouseY < 300) {
+    if (posX2 == 0 && posY2 == 0) {
+      posX2 += 1;
+      posY2 += 10;
+    } else {
+      posX2 = 0;
+      posY2 = 0;
+    }
   }
-  
-  else if ((mouseX > 250 && mouseX < 400 && mouseY > 10 && mouseY < 500)(posX3 == 0 || posY3 == 0)) {
-   posX3 += 1;
-   posY3 += 10;
+
+  // pic3
+  if (mouseX > 250 && mouseX < 400 && mouseY > 10 && mouseY < 297) {
+    if (posX3 == 0 && posY3 == 0) {
+      posX3 += 1;
+      posY3 += 10;
+    } else {
+      posX3 = 0;
+      posY3 = 0;
+    }
   }
-  
-  else if ((mouseX > 329 && mouseX < 499 && mouseY > 10 && mouseY < 500)(posX4 == 0 || posY4 == 0)) {
-   posX4 += 1;
-   posY4 += 10;
-  } else {
-    posX2 = 0;
-    posY2 = 0;
-    posX3 = 0;
-    posY3 = 0;
-    posX4 = 0;
-    posY4 = 0;
+
+  // pic4
+  if (mouseX > 400 && mouseX < 499 && mouseY > 10 && mouseY < 500) {
+    if (posX4 == 0 && posY4 == 0) {
+      posX4 += 0;
+      posY4 += 10;
+    } else {
+      posX4 = 0;
+      posY4 = 0;
+    }
   }
-}
+  // pic5
+  if(mouseX>65 && mouseX<512 && mouseY>325 && mouseY<454){
+    if (posX5 == 0 && posY5 == 0){
+      posX5 += -2;
+      posY5 += 2;
+    } else {
+      posX5 = 0;
+      posY5 = 0;}
+    }
+  }
+
