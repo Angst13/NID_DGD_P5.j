@@ -143,6 +143,19 @@ let posX1 = 0
  let posY5 = 0
  let posX6 = 0
  let posY6 = 0
+ let posX7 = 0
+ let posY7 = 0
+ let posY8 = 0
+ let posX8 = 0
+ let posY9 = 0
+ let posX9 = 0
+ let posY10 = 0
+ let posX10 = 0
+ let posY11 = 0
+ let posX11 = 0
+ let posY12 = 0
+ let posX12 = 0
+ let posY13 = 0
 
 function preload() {
   pic1 = loadImage("images/vaga1full.png");
@@ -178,17 +191,17 @@ function draw() {
 
   
   image(pic1, 0, 0, 2000, 1414);
-
+   image(pic8, posX8, posY8, 2000, 1414);
 
   image(pic2, 0, posY2, 2000, 1414);
   image(pic3, 0, posY3, 2000, 1414);
   //image(pic4, posX4, posY4, 2000, 1414);
-
+  image(pic21, 0, 0, 2000, 1414);
 
   image(pic5, posX5, posY5, 2000, 1414);
-  image(pic6, 0, 0, 2000, 1414);
-  image(pic7, 0, 0, 2000, 1414);
-  image(pic8, 0, 0, 2000, 1414);
+  image(pic6, posX6, posY6, 2000, 1414);
+  image(pic7, posX7, posY7, 2000, 1414);
+  //image(pic8, posX8, posY8, 2000, 1414);
   image(pic9, 0, 0, 2000, 1414);
   image(pic10, 0, 0, 2000, 1414);
   image(pic11, 0, 0, 2000, 1414);
@@ -201,8 +214,11 @@ function draw() {
   image(pic18, 0, 0, 2000, 1414);
   image(pic19, 0, 0, 2000, 1414);
   image(pic20, 0, 0, 2000, 1414);
-  image(pic21, 0, 0, 2000, 1414);
-image(pic4, posX4, posY4, 2000, 1414);
+  //image(pic21, 0, 0, 2000, 1414);
+  image(pic4, posX4, posY4, 2000, 1414);
+//image(pic7, posX7, posY7, 2000, 1414);
+  
+
   
   fill(0);
   noStroke();
@@ -252,5 +268,32 @@ function mouseClicked() {
       posX5 = 0;
       posY5 = 0;}
     }
+    //pic6
+    if(mouseX>59 && mouseX<502 && mouseY>490 && mouseY<716){
+      if (posX6 == 0 && posY6 == 0){
+        posX6 += 0;
+        posY6 += 20;
+      } else {
+        posX6 = 0;
+        posY6 = 0;
+      }
+    } 
+    if(mouseX>549 && mouseX<992 && mouseY>21 && mouseY<373){
+      if (posX7 == 0 && posY7 == 0){
+        posX7 -= 200 ;
+        posY7 += 100;
+      } else {
+        posX7 = 0;
+        posY7 = 0;
+      }
   }
-
+  if(mouseX>550 && mouseX<992 && mouseY>706 && mouseY<707){
+    if (posX8 == 0 && posY8 == 0){
+        posX8 -= 545;
+        posY8 += 621;
+     }  else {
+        posX8 = 0;
+        posY8 = 0;
+     }
+}
+}
