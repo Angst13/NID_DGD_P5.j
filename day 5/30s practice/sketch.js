@@ -129,7 +129,11 @@ function preload() {
   tension1 = loadSound("sounds/tension1.mp3");
   tension2 = loadSound("sounds/tension2.mp3");
   water = loadSound("sounds/water.mp3");
-
+  breath3 = loadSound("sounds/breath3.mp3");
+  breath4 = loadSound("sounds/breath4.mp3");
+  windrust = loadSound("sounds/windrust.mp3");
+  koto = loadSound("sounds/koto.mp3");
+  bgm = loadSound("sounds/bgm.mp3");
 }
 
 function setup() {
@@ -191,17 +195,28 @@ image(pic20, posX20, posY20, 2000+scale20, 1414+scale20);
 }
 
 function mouseClicked() {
+     // bgm music 
+     if (mouseX > 0  && mouseX < 32 && mouseY > 0 && mouseY < 300) {
+    if (!bgm.isPlaying()) {
+      bgm.play();
+      bgm.setVolume(0.1);
+    } else {
+      bgm.stop(); 
+      
+    }
+  }
   //pic2
   if (mouseX > 60 && mouseX < 215 && mouseY > 10 && mouseY < 300) {
     if (posX2 == 0 && posY2 == 0) {
       posX2 += 1;
       posY2 += 10;
       breath1.play()
+      breath3.stop()
     } else {
       posX2 = 0;
       posY2 = 0;
       breath1.stop()
-
+      breath3.play()
     }
   }
 
@@ -210,9 +225,13 @@ function mouseClicked() {
     if (posX3 == 0 && posY3 == 0) {
       posX3 += 1;
       posY3 += 10;
+      breath2.play()
+      breath4.stop()
     } else {
       posX3 = 0;
       posY3 = 0;
+      breath2.stop()
+      breath4.play()
     }
   }
 
@@ -221,9 +240,13 @@ function mouseClicked() {
     if (posX4 == 0 && posY4 == 0) {
       posX4 += 0;
       posY4 += 10;
+       breath1.play()
+       breath3.stop()
     } else {
       posX4 = 0;
       posY4 = 0;
+      breath1.stop()
+      breath3.play()
     }
   }
   // pic5
@@ -231,9 +254,11 @@ function mouseClicked() {
     if (posX5 == 0 && posY5 == 0 &&  scale5==1) {
       posX5 += -2;
       posY5 += 2;
+      tension2.play()
     } else {
       posX5 = 0;
       posY5 = 0;
+      tension2.stop()
     }
   }
   //pic6
@@ -242,10 +267,12 @@ function mouseClicked() {
       posX6 -= 30;
       posY6 -= 70;
       scale6 += 200;
+      water.play()
     } else {
       posX6 = 0;
       posY6 = 0;
       scale6 = 1;
+      water.stop()
     }
   }
   //pic7
@@ -254,9 +281,11 @@ function mouseClicked() {
       posX7 -= 100;
       posY7 += 80;
        image(pic27, 0, 0, 2000, 1414);
+      swoosh.play()
     } else {
       posX7 = 0;
       posY7 = 0;
+      swoosh.stop()
     }
   }
   //pic8 (arm)
@@ -265,15 +294,19 @@ function mouseClicked() {
       posX8 -= 40;
       posY8 += 0;
       scale8 += 100;
+      footsound.play()
     } else {
       posX8 = 0;
       posY8 = 0;
       scale8 = 1;
+      footsound.stop()
     }
   }
   //pic9 (sword)
 if (mouseX > 547 && mouseX < 782 && mouseY > 392 && mouseY < 707) {
   isSwR = !isSwR; // toggle true/false each time you click the sword
+slash5.play()
+
 }
 // pic10
 if (mouseX > 1521 && mouseX < 1678 && mouseY > 28 && mouseY < 684) {
@@ -281,15 +314,18 @@ if (mouseX > 1521 && mouseX < 1678 && mouseY > 28 && mouseY < 684) {
     posX10 -= 150;
     posY10 -= 30;
     scale10 += 200;
+    flashback.play()
   } else {
     posX10 = 0;
     posY10 = 0;
     scale10 = 1;
+    flashback.stop()
   }
 }
 //pic11 (sword cut)
 if (mouseX > 1687 && mouseX < 1942 && mouseY > 24 && mouseY < 684) {
   isswrcut = !isswrcut; // toggle true/false each time you click the sword
+  slash4.play()
 
   }
   //pic12 
@@ -298,10 +334,12 @@ if (mouseX > 1687 && mouseX < 1942 && mouseY > 24 && mouseY < 684) {
       posX12 -= 150;
       posY12 -= 30;
       scale12 += 200;
+      swordimpact.play()
     } else {
       posX12 = 0;
       posY12 = 0;
       scale12 = 1;
+      swordimpact.stop()
     }
 }
 // pic13
@@ -310,10 +348,12 @@ if (mouseX > 60 && mouseX < 363 && mouseY > 947 && mouseY < 1234) {
     posX13 -= 10;
     posY13 -= 130;
     scale13 += 200;
+    gasp2.play()
   } else {
     posX13 = 0;
     posY13 = 0;
     scale13 = 1;
+    gasp2.stop()
   }
 }
 //14
@@ -322,10 +362,12 @@ if(mouseX>59 && mouseX<389 && mouseY>1251 && mouseY<1382){
     posX14 += 20;
     posY14 += 185;
     scale14 -= 200;
+    tension2.play()
   } else {
     posX14 = 0;
     posY14 = 0;
     scale14 = 1;
+    tension2.stop()
   }
 }
 //15
@@ -334,10 +376,12 @@ if(mouseX>351 && mouseX<495 && mouseY>738 && mouseY<1381){
     posX15 += 200;
     posY15 += 200;
     scale15 -= 0;
+    swordimpact.play()
   } else {
     posX15 = 0;
     posY15 = 0;
     scale15 = 1;
+    swordimpact.stop()
   }
 }
 //16
@@ -349,6 +393,9 @@ if(mouseX>526 && mouseX<968 && mouseY>743 && mouseY<1381){
     posX17 = 30;
     posY17 += 0;
     scale17 += 100;
+    slash3.play()
+    damage.play()
+    bloodspill2.stop()
   } else {
     posX16 = 0;
     posY16 = 0;
@@ -356,6 +403,9 @@ if(mouseX>526 && mouseX<968 && mouseY>743 && mouseY<1381){
     posX17 = 0;
     posY17 = 0;
     scale17 = 1;
+    slash3.stop()
+    damage.stop()
+    bloodspill2.play()
   }
 
 }
@@ -365,10 +415,14 @@ if (mouseX > 1014 && mouseX < 1116 && mouseY > 718 && mouseY < 949) {
     posX18 -= 10;
     posY18 += 0;
     scale18 += 0;
+    windrust.play()
+    bloodspill1.stop()
   } else {
     posX18 = 0;
     posY18 = 0;
     scale18 = 1;
+    windrust.stop()
+    bloodspill1.play()
   }
 }
 //19
@@ -377,10 +431,14 @@ if (mouseX > 1012 && mouseX < 1450 && mouseY > 966 && mouseY < 1405) {
     posX19 -= 50;
     posY19 += 70;
     scale19 += 0;
+    damage.play()
+    bloodspill2.play()
   } else {
     posX19 = 0;
     posY19 = 0;
     scale19 = 1;
+    damage.stop()
+    bloodspill2.stop()
   }
 }
 //20
@@ -389,10 +447,12 @@ if (mouseX > 1493 && mouseX < 1944 && mouseY > 734 && mouseY < 1396) {
     posX20 -= 8900;
     posY20 -= 10000;
     scale20 += 10000;
+    koto.play()
   } else {
     posX20 = 0;
     posY20 = 0;
     scale20 = 1;
+    
   }
 }
 }
