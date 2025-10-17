@@ -11,6 +11,7 @@ process : again i tried to make a patter connected to each
 
 assignment 3: to make a 30 second interactive work with all the knowledge up till now
 objective: to try to animate a panel of manga chapter \
+what i want to do: i want to complete interactive panel which play sound when i click on the panel,
 process: first i tried to make the animate as if the panels
          appeared page by page but it got a little too complex, i stuck to one page sonatining all the images, i cut out the parts i want to create the layers  but i forgot to save the layers as images and had to redo the layers,
          after the cutting and adding the layer inthe sktech.js and preloading the images i tried to moved the x and y coordinate of the overlays to move them up and down for the first two panels 
