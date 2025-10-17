@@ -199,7 +199,7 @@ function mouseClicked() {
      if (mouseX > 0  && mouseX < 32 && mouseY > 0 && mouseY < 300) {
     if (!bgm.isPlaying()) {
       bgm.play();
-      bgm.setVolume(0.1);
+      bgm.setVolume(0.3);
     } else {
       bgm.stop(); 
       
@@ -305,7 +305,7 @@ function mouseClicked() {
   //pic9 (sword)
 if (mouseX > 547 && mouseX < 782 && mouseY > 392 && mouseY < 707) {
   isSwR = !isSwR; // toggle true/false each time you click the sword
-slash5.play()
+  
 
 }
 // pic10
