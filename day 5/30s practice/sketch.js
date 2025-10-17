@@ -376,12 +376,12 @@ if(mouseX>351 && mouseX<495 && mouseY>738 && mouseY<1381){
     posX15 += 200;
     posY15 += 200;
     scale15 -= 0;
-    swordimpact.play()
+    swordimpact.stop()
   } else {
     posX15 = 0;
     posY15 = 0;
     scale15 = 1;
-    swordimpact.stop()
+    swordimpact.play()
   }
 }
 //16
