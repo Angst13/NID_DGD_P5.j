@@ -48,5 +48,15 @@ function draw() {
   }else if(keyIsDown(83)){
     lpaddle.moveDown();
   }
+
   //if keys w and s are are pressed move the left paddle
+  //if keys W and S are pressed, move the left paddle
+  if(keyIsDown(87)) {
+    lPaddle.moveUp();
+  } else if(keyIsDown(83)){
+    lPaddle.moveDown();
+  } 
+
+  lpaddle.show();
+  rpaddle.show();
 }
