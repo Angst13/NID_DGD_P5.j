@@ -76,6 +76,7 @@ let scale22 = 1;
 let scale23 = 1;
 let scale24 = 1;
 let scale25 = 1;
+// dim panel
 
 
 let isSwR = false; // to switch the image of pic9
@@ -83,7 +84,7 @@ let isswrcut = false; // to switch the image of pic11
 
 
 function preload() {
-  pic1 = loadImage("images/vaga1full.png");
+  pic1 = loadImage("images/vback.png");
   pic7 = loadImage("images/v6.png");
   pic8 = loadImage("images/v7.png");
   pic9 = loadImage("images/v8.png");
@@ -109,7 +110,7 @@ function preload() {
   pic24 = loadImage("images/v23.png");
   pic25 = loadImage("images/v24.png");
   pic26 = loadImage("images/v25.png");
-  pic27 = loadImage("images/v6back.png");
+  //pic27 = loadImage("images/v6back.png");
   bloodspill1 = loadSound("sounds/bloodspill1.mp3");
   bloodspill2 = loadSound("sounds/bloodspill2.mp3");
   breath1 = loadSound("sounds/breath1.mp3");
@@ -152,15 +153,13 @@ function draw() {
   image(pic2, 0, posY2, 2000+scale2, 1414+scale2);
   image(pic3, 0, posY3, 2000+scale3, 1414+scale3);
 
-  image(pic21, 0, 0, 2000, 1414);
+  //image(pic21, 0, 0, 2000, 1414);
 
   image(pic5, posX5, posY5, 2000, 1414);
   image(pic6, posX6, posY6, 2000+scale6, 1414+scale6);
   image(pic7, posX7, posY7, 2000+scale7, 1414+scale7);
   image(pic8, posX8, posY8, 2000+scale8, 1414+scale8);
-  
   image(pic10, posX10, posY10, 2000+scale10, 1414+scale10);
-  
   image(pic12, posX12, posY12, 2000+scale12, 1414+scale12);
   image(pic13, posX13, posY13, 2000+scale13, 1414+scale13);
   image(pic14, posX14, posY14, 2000+scale14, 1414+scale14);
@@ -173,7 +172,7 @@ function draw() {
 
   image(pic4, posX4, posY4, 2000, 1414);
   image(pic26, 0, 0, 2000, 1414);
-  image(pic23, 0, 0, 2000, 1414);
+  //image(pic23, 0, 0, 2000, 1414);
  
  
 if(isSwR == false) {
@@ -192,6 +191,7 @@ if(isswrcut == false) {
   textSize(20);
   text("mouseX: " + mouseX + "  mouseY: " + mouseY, 20, 20);
 image(pic20, posX20, posY20, 2000+scale20, 1414+scale20);
+
 }
 
 function mouseClicked() {
@@ -280,7 +280,7 @@ function mouseClicked() {
     if (posX7 == 0 && posY7 == 0) {
       posX7 -= 100;
       posY7 += 80;
-       image(pic27, 0, 0, 2000, 1414);
+       //image(pic27, 0, 0, 2000, 1414);
       swoosh.play()
     } else {
       posX7 = 0;

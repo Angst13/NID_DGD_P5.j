@@ -1,8 +1,10 @@
 
+let overlays = [];
 
 let pic1, pic2, pic3, pic4, pic5, pic6;
 let pic7, pic8, pic9, pic10, pic11, pic12, pic13, pic14, pic15, pic16, pic17, pic18, pic19, pic20, pic21, pic22,pic23,pic24,pic25,pic26;
 //
+let showPanelOverlay = []; // global panel visibility array
 let posX1 = 0
 let posY1 = 0
 let posX2 = 0
@@ -115,19 +117,29 @@ function preload() {
   pic24 = loadImage("images/v23.png");
   pic25 = loadImage("images/v24.png");
   pic26 = loadImage("images/v25.png");
+//panel
+// ---------- PANEL VISIBILITY ----------
+showPanelOverlay = [];
+for (let i = 2; i <= 20; i++) {
+  showPanelOverlay[i] = true; // overlay visible initially
 }
+}
+
 
 function setup() {
   createCanvas(2000, 1414);
   frameRate(60);
+  setupOverlays(); // initialize overlay positions
+
   //angleMode(DEGREES); 
 
 }
 
+
 function draw() {
   background(220);
 
- 
+  drawOverlays();
   image(pic1, 0, 0, 2000, 1414);
 
   image(pic2, 0, posY2, 2000+scale2, 1414+scale2);
@@ -190,9 +202,12 @@ if(isswrcut == false) {
   textSize(20);
   text("mouseX: " + mouseX + "  mouseY: " + mouseY, 20, 20);
 image(pic20, posX20, posY20, 2000+scale20, 1414+scale20);
+// 
+drawOverlays();
 }
-
 function mouseClicked() {
+  // panels
+  
   //pic2
   if (mouseX > 60 && mouseX < 215 && mouseY > 10 && mouseY < 300) {
     if (posX2 == 0 && posY2 == 0) {
@@ -270,25 +285,24 @@ function mouseClicked() {
     }
   }
   //pic9 (sword)
-if (mouseX > 547 && mouseX < 782 && mouseY > 392 && mouseY < 707) {
-  isSwR = !isSwR; // toggle true/false each time you click the sword
-}
-// pic10
-if (mouseX > 1521 && mouseX < 1678 && mouseY > 28 && mouseY < 684) {
-  if (posX10 == 0 && posY10 == 0 && scale10==1) {
-    posX10 -= 150;
-    posY10 -= 30;
-    scale10 += 200;
-  } else {
-    posX10 = 0;
-    posY10 = 0;
-    scale10 = 1;
+  if (mouseX > 547 && mouseX < 782 && mouseY > 392 && mouseY < 707) {
+    isSwR = !isSwR; // toggle true/false each time you click the sword
   }
-}
-//pic11 (sword cut)
-if (mouseX > 1687 && mouseX < 1942 && mouseY > 24 && mouseY < 684) {
-  isswrcut = !isswrcut; // toggle true/false each time you click the sword
-
+  // pic10
+  if (mouseX > 1521 && mouseX < 1678 && mouseY > 28 && mouseY < 684) {
+    if (posX10 == 0 && posY10 == 0 && scale10==1) {
+      posX10 -= 150;
+      posY10 -= 30;
+      scale10 += 200;
+    } else {
+      posX10 = 0;
+      posY10 = 0;
+      scale10 = 1;
+    }
+  }
+  //pic11 (sword cut)
+  if (mouseX > 1687 && mouseX < 1942 && mouseY > 24 && mouseY < 684) {
+    isswrcut = !isswrcut; // toggle true/false each time you click the sword
   }
   //pic12 
   if (mouseX > 58 && mouseX < 341 && mouseY > 736 && mouseY < 929) {
@@ -301,98 +315,99 @@ if (mouseX > 1687 && mouseX < 1942 && mouseY > 24 && mouseY < 684) {
       posY12 = 0;
       scale12 = 1;
     }
-}
-// pic13
-if (mouseX > 60 && mouseX < 363 && mouseY > 947 && mouseY < 1234) {
-  if (posX13 == 0 && posY13 == 0 && scale13 == 1) {
-    posX13 -= 10;
-    posY13 -= 130;
-    scale13 += 200;
-  } else {
-    posX13 = 0;
-    posY13 = 0;
-    scale13 = 1;
   }
-}
-//14
-if(mouseX>59 && mouseX<389 && mouseY>1251 && mouseY<1382){
-  if (posX14 == 0 && posY14 == 0 && scale14==1){
-    posX14 += 20;
-    posY14 += 185;
-    scale14 -= 200;
-  } else {
-    posX14 = 0;
-    posY14 = 0;
-    scale14 = 1;
+  // pic13
+  if (mouseX > 60 && mouseX < 363 && mouseY > 947 && mouseY < 1234) {
+    if (posX13 == 0 && posY13 == 0 && scale13 == 1) {
+      posX13 -= 10;
+      posY13 -= 130;
+      scale13 += 200;
+    } else {
+      posX13 = 0;
+      posY13 = 0;
+      scale13 = 1;
+    }
   }
-}
-//15
-if(mouseX>351 && mouseX<495 && mouseY>738 && mouseY<1381){
-  if (posX15 == 0 && posY15 == 0 && scale15==1){
-    posX15 += 200;
-    posY15 += 200;
-    scale15 -= 0;
-  } else {
-    posX15 = 0;
-    posY15 = 0;
-    scale15 = 1;
+  //14
+  if(mouseX>59 && mouseX<389 && mouseY>1251 && mouseY<1382){
+    if (posX14 == 0 && posY14 == 0 && scale14==1){
+      posX14 += 20;
+      posY14 += 185;
+      scale14 -= 200;
+    } else {
+      posX14 = 0;
+      posY14 = 0;
+      scale14 = 1;
+    }
   }
-}
-//16
-if(mouseX>526 && mouseX<968 && mouseY>743 && mouseY<1381){
-  if (posX16 == 0 && posY16 == 0 && scale16==1 && posX17 == 0 && posY17 == 0 && scale17==1){
-    posX16 += 80;
-    posY16 -= 20;
-    scale16 -= 100;
-    posX17 = 30;
-    posY17 += 0;
-    scale17 += 100;
-  } else {
-    posX16 = 0;
-    posY16 = 0;
-    scale16 = 1;
-    posX17 = 0;
-    posY17 = 0;
-    scale17 = 1;
+  //15
+  if(mouseX>351 && mouseX<495 && mouseY>738 && mouseY<1381){
+    if (posX15 == 0 && posY15 == 0 && scale15==1){
+      posX15 += 200;
+      posY15 += 200;
+      scale15 -= 0;
+    } else {
+      posX15 = 0;
+      posY15 = 0;
+      scale15 = 1;
+    }
+  }
+  //16
+  if(mouseX>526 && mouseX<968 && mouseY>743 && mouseY<1381){
+    if (posX16 == 0 && posY16 == 0 && scale16==1 && posX17 == 0 && posY17 == 0 && scale17==1){
+      posX16 += 80;
+      posY16 -= 20;
+      scale16 -= 100;
+      posX17 = 30;
+      posY17 += 0;
+      scale17 += 100;
+    } else {
+      posX16 = 0;
+      posY16 = 0;
+      scale16 = 1;
+      posX17 = 0;
+      posY17 = 0;
+      scale17 = 1;
+    }
+  }
+  //18
+  if (mouseX > 1014 && mouseX < 1116 && mouseY > 718 && mouseY < 949) {
+    if (posX18 == 0 && posY18 == 0 && scale18 == 1) {
+      posX18 -= 10;
+      posY18 += 0;
+      scale18 += 0;
+    } else {
+      posX18 = 0;
+      posY18 = 0;
+      scale18 = 1;
+    }
+  }
+  //19
+  if (mouseX > 1012 && mouseX < 1450 && mouseY > 966 && mouseY < 1405) { 
+    if (posX19 == 0 && posY19 == 0 && scale19 == 1) {
+      posX19 -= 50;
+      posY19 += 70;
+      scale19 += 0;
+    } else {
+      posX19 = 0;
+      posY19 = 0;
+      scale19 = 1;
+    }
+  }
+  //20
+  if (mouseX > 1493 && mouseX < 1944 && mouseY > 734 && mouseY < 1396) {
+    if (posX20 == 0 && posY20 == 0 && scale20 == 1) {
+      posX20 -= 8900;
+      posY20 -= 10000;
+      scale20 += 10000;
+    } else {
+      posX20 = 0;
+      posY20 = 0;
+      scale20 = 1;
+    }
   }
 
-}
-//18
-if (mouseX > 1014 && mouseX < 1116 && mouseY > 718 && mouseY < 949) {
-  if (posX18 == 0 && posY18 == 0 && scale18 == 1) {
-    posX18 -= 10;
-    posY18 += 0;
-    scale18 += 0;
-  } else {
-    posX18 = 0;
-    posY18 = 0;
-    scale18 = 1;
-  }
-}
-//19
-if (mouseX > 1012 && mouseX < 1450 && mouseY > 966 && mouseY < 1405) { 
-  if (posX19 == 0 && posY19 == 0 && scale19 == 1) {
-    posX19 -= 50;
-    posY19 += 70;
-    scale19 += 0;
-  } else {
-    posX19 = 0;
-    posY19 = 0;
-    scale19 = 1;
-  }
-}
-//20
-if (mouseX > 1493 && mouseX < 1944 && mouseY > 734 && mouseY < 1396) {
-  if (posX20 == 0 && posY20 == 0 && scale20 == 1) {
-    posX20 -= 8900;
-    posY20 -= 10000;
-    scale20 += 10000;
-  } else {
-    posX20 = 0;
-    posY20 = 0;
-    scale20 = 1;
-  }
-}
+  
 }
 
 /* mathura
